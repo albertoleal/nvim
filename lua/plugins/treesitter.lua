@@ -110,7 +110,6 @@ require('nvim-treesitter.configs').setup {
     "hack",
     "haskell",
     "hcl",
-    "help",
     "html",
     "http",
     "java",
