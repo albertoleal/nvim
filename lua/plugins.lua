@@ -230,7 +230,10 @@ packer.startup {
                 'haydenmeade/neotest-jest',
                 'mfussenegger/nvim-dap',
             },
-            config = function() require('plugins/test') end,
+            config = function()
+                require('plugins/test')
+                vim.cmd("let g:test#javascript#runner = 'jest'")
+            end
         }
 
         -- generic (non lua) plugins
