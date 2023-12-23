@@ -187,5 +187,5 @@ vim.api.nvim_exec([[
   autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_seq_sync(nil, 500)
   autocmd BufWritePre *.tfvars lua vim.lsp.buf.format { async = true }
   autocmd BufWritePre *.tf lua vim.lsp.buf.format { async = true }
-  autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+  " autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 ]], false)
