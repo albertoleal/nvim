@@ -118,7 +118,6 @@ packer.startup {
         }
 
         use {
-            'p00f/nvim-ts-rainbow',
             'windwp/nvim-ts-autotag',
             'JoosepAlviste/nvim-ts-context-commentstring'
         }
