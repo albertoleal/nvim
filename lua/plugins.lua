@@ -80,7 +80,6 @@ packer.startup {
         }
 
         use {
-            'lukas-reineke/lsp-format.nvim',
             'neovim/nvim-lspconfig',
             'folke/lsp-colors.nvim',
             'tami5/lspsaga.nvim',
@@ -89,7 +88,6 @@ packer.startup {
             'onsails/lspkind-nvim',
             'ray-x/lsp_signature.nvim',
             'nvim-lua/lsp-status.nvim',
-            'jose-elias-alvarez/null-ls.nvim',
             requires = 'kyazdani42/nvim-web-devicons',
             after = 'go.nvim',
         }

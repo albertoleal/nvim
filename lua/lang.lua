@@ -4,9 +4,6 @@ local configs = require('lspconfig/configs')
 local lsp_status = require('lsp-status')
 local lspkind = require('lspkind')
 local trouble = require('trouble')
-local lsp_format = require("lsp-format")
-
-lsp_format.setup()
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -62,32 +59,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 lspkind.init()
-
--- Lua
-lspconfig.lua_ls.setup({
-  capabilities = capabilities,
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        },
-      },
-    },
-  },
-  on_attach = function(client, bufnr)
-    lsp_format.on_attach(client)
-    on_attach(client, bufnr)
-  end
-})
 
 -- Emmet
 if not lspconfig.emmet_ls then
