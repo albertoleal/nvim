@@ -92,18 +92,8 @@ lspconfig.tsserver.setup({
 
 
 lspconfig.eslint.setup({
-  capabilities = capabilities,
-  handlers = {
-    ["window/showMessageRequest"] = function(_, result, params)
-      return result
-    end,
-  },
   on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      command = "EslintFixAll",
-    })
-    vim.api.nvim_create_autocmd("BufWritePost", {
       buffer = bufnr,
       command = "EslintFixAll",
     })
@@ -141,4 +131,5 @@ require 'lspconfig'.yamlls.setup {
 
 vim.api.nvim_exec([[
   autocmd CursorHold * lua require'lspsaga.diagnostic'.show_cursor_diagnostics()
+  " autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 ]], false)
