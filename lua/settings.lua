@@ -66,6 +66,8 @@ opt.foldexpr   = 'nvim_treesitter#foldexpr()'
 g.do_filetype_lua = 1 -- use filetype.lua
 g.did_load_filetypes = 0 -- don't use filetype.vim
 
+g.loaded_perl_provider = 0
+
 vim.cmd [[
 augroup config#basic
   autocmd!
