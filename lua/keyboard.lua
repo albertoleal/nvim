@@ -121,6 +121,8 @@ wk.register({
     name = "+git",
     s = { ':Git<cr>', 'git status' },
     b = { ':Git blame<cr>', 'git blame' },
+    h = { ':OpenInGHFile<cr>', 'open file in Github' },
+    l = { ':OpenInGHFileLines<cr>', 'open file line in Github' },
     c = { telescope.git_commits, 'git commits' },
     k = { telescope.git_bcommits, 'git commits (buffer)' },
 }, { prefix = '<leader>g' })

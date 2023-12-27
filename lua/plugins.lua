@@ -155,6 +155,8 @@ packer.startup {
             config = function() require('plugins.vgit') end,
         }
 
+        use 'Almo7aya/openingh.nvim'
+
         use {
             'ray-x/go.nvim',
             config = function()
