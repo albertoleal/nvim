@@ -58,6 +58,9 @@ opt.writebackup = false
 -- Cursor line
 opt.cursorline = true
 
+--Filetype
+opt.filetype = "on"
+
 -- Folding
 opt.foldlevel  = 20
 opt.foldmethod = 'expr'
@@ -67,6 +70,7 @@ g.do_filetype_lua = 1 -- use filetype.lua
 g.did_load_filetypes = 0 -- don't use filetype.vim
 
 g.loaded_perl_provider = 0
+
 
 vim.cmd [[
 augroup config#basic
