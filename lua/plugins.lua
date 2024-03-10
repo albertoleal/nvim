@@ -28,6 +28,7 @@ packer.startup {
         }
 
         use 'nvim-lua/plenary.nvim'
+        use 'nathom/filetype.nvim'
         use {
             'rcarriga/nvim-notify',
             config = function() vim.notify = require('notify') end,
