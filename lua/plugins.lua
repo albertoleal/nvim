@@ -18,6 +18,8 @@ packer.startup {
             end
         end
 
+        use 'Mofiqul/dracula.nvim'
+
         -- Packer can manage itself as an optional plugin
         use 'wbthomason/packer.nvim'
 
