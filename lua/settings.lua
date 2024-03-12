@@ -72,9 +72,6 @@ g.did_load_filetypes = 0 -- don't use filetype.vim
 g.loaded_perl_provider = 0
 
 
-vim.cmd[[colorscheme dracula]]
-
-
 vim.cmd [[
 augroup config#basic
   autocmd!
