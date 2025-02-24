@@ -1,46 +1,37 @@
--- Disable some in built plugins completely
-vim.g.loaded_netrwPlugin      = 1
-vim.g.loaded_2html_plugin     = 1
-vim.g.loaded_getscriptPlugin  = 1
-vim.g.loaded_logipat          = 1
-vim.g.loaded_rrhelper         = 1
-vim.g.loaded_vimballPlugin    = 1
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
+vim.g.mapleader = " "
 
-if vim.version().major == 0 and vim.version().minor < 7 then
-    local fmt = string.format
-    local version = vim.version().major .. '.' .. vim.version().minor .. '.' .. vim.version().patch
-    vim.api.nvim_err_writeln(
-        fmt('luan/nvim requires at least nvim-0.7.0 (current %s)', version)
-    )
-    vim.api.nvim_err_writeln('Please update Neovim')
-    return
+-- bootstrap lazy and all plugins
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+if not vim.uv.fs_stat(lazypath) then
+  local repo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
-require('globals')
-require('packer-init')
+vim.opt.rtp:prepend(lazypath)
 
-local has_module  = require('utils').has_module
+local lazy_config = require "configs.lazy"
 
-if has_module('user.before') then
-    require('user.before')
-end
+-- load plugins
+require("lazy").setup({
+  {
+    "NvChad/NvChad",
+    lazy = false,
+    branch = "v2.5",
+    import = "nvchad.plugins",
+  },
 
-local modules = {
-    'settings',
-    'plugins',
-    'colorscheme',
-    'keyboard',
-    'diagnostics',
-    'paste',
-    'lang',
-}
+  { import = "plugins" },
+}, lazy_config)
 
-for i = 1, #modules, 1 do
-    pcall(require, modules[i])
-end
+-- load theme
+dofile(vim.g.base46_cache .. "defaults")
+dofile(vim.g.base46_cache .. "statusline")
 
-if has_module('user.after') then
-    require('user.after')
-end
+require "options"
+require "nvchad.autocmds"
 
-require('update')
+vim.schedule(function()
+  require "mappings"
+end)
