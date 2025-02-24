@@ -13,10 +13,13 @@ return {
     end,
   },
 
-    {
-    'nvim-telescope/telescope.nvim',
-    },
+  {
+    'nvim-telescope/telescope.nvim'
+  },
 
+  {
+    'mrjones2014/smart-splits.nvim'
+  },
 
   {
   	"nvim-treesitter/nvim-treesitter",
