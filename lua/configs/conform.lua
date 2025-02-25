@@ -1,15 +1,16 @@
 local options = {
   formatters_by_ft = {
+    php = { "pint", "php_cs_fixer", stop_after_first = true },
+    go = { "gofmt", "goimports", "golines" },
+    ruby = { "rufo" },
+    rust = { "rustfmt" },
     lua = { "stylua" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    yaml = { "yamlfmt" },
   },
 
-  -- format_on_save = {
-  --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
+  format_on_save = {
+    lsp_fallback = true,
+  },
 }
 
 return options
